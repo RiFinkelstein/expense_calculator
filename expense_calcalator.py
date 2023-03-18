@@ -27,7 +27,7 @@ class Budget(object):
         if option == 1:
             self.saving = 0.2
         elif option == 2:
-            self.saving == 0.3
+            self.saving = 0.3
         else:
             print("error. please select only 1 or 2!")
         self.final_saving = self.budget*self.saving
