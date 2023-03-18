@@ -13,13 +13,13 @@ class Budget(object):
         print("this calculator follows the 50-20-30 budget rule.\n")
         print("yourtotal budget is $", '{:.2f}'.format(self.budget))
         main_option = int(input(
-            '\n what do you want to do? \n 1) View ovrall budget \n2)View spending budger?'))
+            '\n what do you want to do? \n 1) View ovrall budget \n2)View spending budget?'))
         if main_option == 1:
             self.overall_budget()
         elif main_option == 2:
             self.spending_budget()
         else:
-            quit()
+            self.new_budget()
 
     def overall_budget(self):
         os.system('cls')
@@ -47,6 +47,14 @@ class Budget(object):
             bills), '\nGroceries''{:.2f}'.format(groceries),)
         os.system('pause')
         self.main()
+
+    def new_budget(self):
+        os.system('cls')
+        option = input("Do you want to enter a new budget? (y/n)")
+        if option.lower() == 'y':
+            self.__init__()
+        else:
+            quit()
 
 
 Budget()
