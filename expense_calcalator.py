@@ -6,18 +6,24 @@ class Budget(object):
         os.system('cls')
         self.budget = float(input("how much is your budget\n"))
         self.spending = self.budget * 0.5
+        self.expenses = {} 
         self.main()
+
 
     def main(self):
         os.system('cls')
         print("this calculator follows the 50-20-30 budget rule.\n")
         print("yourtotal budget is $", '{:.2f}'.format(self.budget))
         main_option = int(input(
-            '\n what do you want to do? \n 1) View ovrall budget \n2)View spending budget?'))
+            '\n what do you want to do? \n 1) View ovrall budget \n2)View spending budget?\n3) Add expense\n4) Exit\n'))
         if main_option == 1:
             self.overall_budget()
         elif main_option == 2:
             self.spending_budget()
+        elif main_option == 3:
+            self.add_expense()
+        elif main_option == 4:
+            quit()
         else:
             self.new_budget()
 
@@ -45,6 +51,16 @@ class Budget(object):
         groceries = self.spending-rent-bills
         print('\nEXPENSES: \n Rent: $', '{:.2f}'.format(rent), '\nbills:$', '{:.2f}'.format(
             bills), '\nGroceries''{:.2f}'.format(groceries),)
+        os.system('pause')
+        self.main()
+    
+    def add_expense(self):
+        os.system('cls')
+        print("Add an expense:")
+        category = input("Category: ")
+        amount = float(input("Amount: "))
+        self.expenses[category] = self.expenses.get(category, 0) + amount
+        print(category, "expense of $", '{:.2f}'.format(amount), "added.")
         os.system('pause')
         self.main()
 
