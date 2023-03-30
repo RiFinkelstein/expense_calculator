@@ -29,10 +29,12 @@ class Budget(object):
 
     def overall_budget(self):
         os.system('cls')
-        option = int(input("how much do you want to save? 1)2% 2)30%"))
+        option = int(input("how much do you want to save? 1)2% 2)10% 2)30%"))
         if option == 1:
             self.saving = 0.2
         elif option == 2:
+            self.saving == .1
+        elif option == 3:
             self.saving = 0.3
         else:
             print("error. please select only 1 or 2!")
